@@ -38,10 +38,10 @@ public class PreProcess extends LineProcess {
     @Override
     protected String processLine(String line) {
         List<String> tokens = Arrays.asList(p.split(line));
-        Integer[] result = new Integer[map.size()];
+        int[] result = new int[map.size()];
         map.forEach((k, v) -> result[v] = tokens.contains(k) ? 1 : 0);
         StringBuilder sb = new StringBuilder(tokens.get(0));
-        Arrays.asList(result).stream().forEach(i -> {
+        Arrays.stream(result).forEach(i -> {
             sb.append(',');
             sb.append(i);
         });
