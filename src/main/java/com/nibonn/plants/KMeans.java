@@ -16,6 +16,10 @@ public class KMeans {
         K = k;
     }
 
+    /**
+     * cluster data set to K clusters
+     * @return list of clusters
+     */
     public List<Cluster> run() {
         while (clusters.size() < K) {
             split();
@@ -29,6 +33,7 @@ public class KMeans {
         List<int[]> data = c.getData();
         Cluster c1 = new Cluster(new LinkedList<>());
         Cluster c2 = new Cluster(new LinkedList<>());
+        // use first two points as initial central points
         c1.addPoint(data.get(0));
         c2.addPoint(data.get(1));
         double[] tmp1 = c1.central();
